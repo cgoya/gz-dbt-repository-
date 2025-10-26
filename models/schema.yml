@@ -6,7 +6,7 @@ sources:
     tables:
       - name: sales
         identifier: raw_gz_sales
-        description: sales of Greenweez / we have on row per product_id found in each orders_id
+        description: Greenweez satış tablosu 
         columns:
           - name: date_date
             description: satın alma tarihi
@@ -20,5 +20,21 @@ sources:
             description: sipariş edilen ürün miktarı
       - name: product
         identifier: raw_gz_product
+        description: Greenweez ürün tablosu
+        columns:
+          - name: products_id
+            description: her ürünün benzersiz kimliği
+          - name: purchase_price
+            description: ürün fiyatı
       - name: ship
         identifier: raw_gz_ship
+        description: nakliye tablosu
+        columns:
+          - name: orders_id
+            description: sipariş kimliği
+          - name: shipping_fee
+            description: gönderim ücreti
+          - name: logcost
+            description: lojistik maliyeti
+          - name: ship_cost
+            description: kargo maliyeti
