@@ -12,7 +12,7 @@ sources:
             description: satın alma tarihi
           - name: orders_id
             description: her siparişin benzersiz kimliği
-          - name: products_id
+          - name: pdt_id
             description: her ürünün benzersiz kimliği
           - name: revenue
             description: siparişten elde edilen toplam gelir
@@ -24,14 +24,20 @@ sources:
         columns:
           - name: products_id
             description: her ürünün benzersiz kimliği
-          - name: purchase_price
+          - name: purchSE_PRICE
             description: ürün fiyatı
+            tests:
+              - unique
+              - not_null
       - name: ship
         identifier: raw_gz_ship
         description: nakliye tablosu
         columns:
           - name: orders_id
             description: sipariş kimliği
+            tests:
+              - unique
+              - not_null
           - name: shipping_fee
             description: gönderim ücreti
           - name: logcost
