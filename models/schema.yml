@@ -6,41 +6,41 @@ sources:
     tables:
       - name: sales
         identifier: raw_gz_sales
-        description: Greenweez satış tablosu 
+        description: Greenweez satış tablosu/her orders_id'de bulunan product_id için bir satırımız var
         columns:
           - name: date_date
             description: satın alma tarihi
           - name: orders_id
-            description: her siparişin benzersiz kimliği
+            description: Ship tablosu için dış anahtar (foreign key).
           - name: pdt_id
-            description: her ürünün benzersiz kimliği
+            description: Product tablosu için dış anahtar (foreign key).
           - name: revenue
-            description: siparişten elde edilen toplam gelir
+            description: Müşteri tarafından ürünü satın almak için ödenen tutar. Gelir = Miktar * Satış Fiyatı.
           - name: quantity
-            description: sipariş edilen ürün miktarı
+            description: Belirli bir sipariş için satın alınan ürün miktarı.
       - name: product
         identifier: raw_gz_product
-        description: Greenweez ürün tablosu
+        description: Greenweez ürün tablosu.
         columns:
           - name: products_id
-            description: her ürünün benzersiz kimliği
+            description: her ürünün benzersiz kimliği/Birincil anahtar (Primary key).
           - name: purchSE_PRICE
-            description: ürün fiyatı
+            description: Ürünün alış (satın alma) fiyatı.
             tests:
               - unique
               - not_null
       - name: ship
         identifier: raw_gz_ship
-        description: nakliye tablosu
+        description: Greenweez siparişleri için gönderi (kargo) verileri.
         columns:
           - name: orders_id
-            description: sipariş kimliği
+            description: sipariş kimliği/Birincil anahtar (Primary key).
             tests:
               - unique
               - not_null
           - name: shipping_fee
-            description: gönderim ücreti
+            description: Müşterinin kargo için ödediği ücret.
           - name: logcost
-            description: lojistik maliyeti
+            description: Dağıtım merkezi/depodaki paketi hazırlama maliyeti (lojistik maliyeti).
           - name: ship_cost
-            description: kargo maliyeti
+            description: Greenweez'in taşıyıcıya/lojistik sağlayıcıya ödediği kargo maliyeti.
