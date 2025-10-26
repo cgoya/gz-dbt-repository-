@@ -7,6 +7,11 @@ sources:
       - name: sales
         identifier: raw_gz_sales
         description: Greenweez satış tablosu/her orders_id'de bulunan product_id için bir satırımız var
+        loaded_at_field: "CAST(date_date AS TIMESTAMP)" 
+        freshness:
+          warn_after:
+            count: 90
+            period: day
         columns:
           - name: date_date
             description: satın alma tarihi
