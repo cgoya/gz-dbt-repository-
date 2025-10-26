@@ -6,10 +6,19 @@ sources:
     tables:
       - name: sales
         identifier: raw_gz_sales
+        description: sales of Greenweez / we have on row per product_id found in each orders_id
+        columns:
+          - name: date_date
+            description: satın alma tarihi
+          - name: orders_id
+            description: her siparişin benzersiz kimliği
+          - name: products_id
+            description: her ürünün benzersiz kimliği
+          - name: revenue
+            description: siparişten elde edilen toplam gelir
+          - name: quantity
+            description: sipariş edilen ürün miktarı
       - name: product
         identifier: raw_gz_product
       - name: ship
         identifier: raw_gz_ship
-
-      
-  
